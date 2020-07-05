@@ -8,8 +8,8 @@ endif
 let g:loaded_uss_find = 1
 
 nnoremap <Plug>UssFindInDir :call <SID>display_help_and_search()<CR>
-if !hasmapto('<Plug>UssFindInDir') || maparg('\f', 'n') ==# ''
-    nnoremap <unique> \f <Plug>UssFindInDir
+if !hasmapto('<Plug>UssFindInDir')
+    nmap <unique> \f <Plug>UssFindInDir
 endif
 
 function! s:display_help_and_search() abort
