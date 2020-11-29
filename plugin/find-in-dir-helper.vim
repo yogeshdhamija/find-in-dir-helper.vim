@@ -8,10 +8,7 @@ endif
 let g:loaded_find_in_dir_helper = 1
 
 nnoremap <Plug>FindInDirHelper :call findInDirHelper#DisplayHelpAndSearch()<CR>
+
 if !hasmapto('<Plug>FindInDirHelper')
-    if(exists("g:vscode"))
-        nmap <unique> \f :call VSCodeNotify("workbench.action.findInFiles")<CR>
-    else
-        nmap <unique> \f <Plug>FindInDirHelper
-    endif
+    nmap <unique> \f <Plug>FindInDirHelper
 endif
