@@ -26,7 +26,7 @@ function! findInDirHelper#FindSelectedTextInDir() abort
         normal! gv
         let startPos = getpos("v")
         let endPos = getpos(".")
-        call VSCodeNotifyRangePos("a:command_name", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+        call VSCodeNotifyRangePos("workbench.action.findInFiles", startPos[1], endPos[1], startPos[2], endPos[2], 1)
     else
     endif
 endfunction
