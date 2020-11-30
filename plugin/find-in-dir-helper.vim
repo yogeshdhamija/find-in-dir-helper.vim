@@ -8,7 +8,7 @@ endif
 let g:loaded_find_in_dir_helper = 1
 
 nnoremap <Plug>FindInDirHelper :call findInDirHelper#DisplayHelpAndSearch()<CR>
-xnoremap <Plug>FindSelectedTextInDir <Cmd>call findInDirHelper#FindSelectedTextInDir()<CR><Esc>
+xnoremap <Plug>FindSelectedTextInDir <Esc>:call findInDirHelper#FindSelectedTextInDir()<CR>
 
 if !hasmapto('<Plug>FindInDirHelper')
     nmap <unique> \f <Plug>FindInDirHelper
