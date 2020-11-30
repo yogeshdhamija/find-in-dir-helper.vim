@@ -21,7 +21,7 @@ function! findInDirHelper#DisplayHelpAndSearch() abort
     endif
 endfunction
 
-function! FindSelectedTextInDir() abort
+function! findInDirHelper#FindSelectedTextInDir() abort
     if(exists("g:vscode"))
         normal! gv
         let startPos = getpos("v")
