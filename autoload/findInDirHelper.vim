@@ -31,6 +31,9 @@ function! findInDirHelper#FindSelectedTextInDir() abort
         let a_save = @a
         silent! normal! "ay
         let searchstring = @a
+        let l:helptext = ":set grepprg?\n    grepprg=".&grepprg."\n:pwd\n    ".getcwd()."\n\n:copen | silent grep! " . searchstring
+        redraw!
+        echo "Executing:\n\n" . l:helptext
         exec "copen"
         exec "silent grep! " . searchstring
       finally
