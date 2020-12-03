@@ -1,6 +1,6 @@
 # find-in-dir-helper.vim
 
-**What does it do?**
+## What does it do?
 This plugin sets up a keyboard shortcut.  You can:
 - Engage the shortcut 
 - Type the search string
@@ -11,11 +11,11 @@ Or, in visual mode, you can:
 
 ...and it will execute a directory search for the selected text.
 
-**What's the shortcut?**
+## What's the shortcut?
 By default, `\f`.  
 But it can be changed by remapping `<Plug>FindSelectedTextInDir` or `<Plug>FindInDirHelper` (for VISUAL and NORMAL mode respectively)
 
-**What does it look like?**
+## What does it look like?
 This is what will show up on screen when the shortcut is triggered:
 ```
 :set grepprg?                               
@@ -31,5 +31,5 @@ Those are the actual commands that you'd run if you wanted to search for things 
 
 This plugin also works with the [VSCode](https://code.visualstudio.com/) plugin, '[VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)'. There, it performs the analagous action of opening the editor's search panel (with pre-populated text if applicable).
 
-To install: 
+## To install
 - Using [vim-plug](https://github.com/junegunn/vim-plug): `Plug 'yogeshdhamija/find-in-dir-helper.vim'`
