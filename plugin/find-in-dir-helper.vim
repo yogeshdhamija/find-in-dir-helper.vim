@@ -12,5 +12,6 @@ xnoremap <Plug>FindSelectedTextInDir <Esc>:call findInDirHelper#FindSelectedText
 
 if !hasmapto('<Plug>FindInDirHelper')
     nmap <unique> \f <Plug>FindInDirHelper
+if !hasmapto('<Plug>FindSelectedTextInDir')
     xmap <unique> \f <Plug>FindSelectedTextInDir
 endif
