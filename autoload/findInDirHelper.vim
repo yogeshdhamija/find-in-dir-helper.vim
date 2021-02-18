@@ -6,17 +6,28 @@ if(exists("g:autoloaded_find_in_dir_helper"))
 endif
 let g:autoloaded_find_in_dir_helper = 1
 
+function! s:grep_cmd() abort
+    return "lgrep"
+endfunction
+
+function! s:open_cmd() abort
+    return "lopen"
+endfunction
+
+function! s:help_text() abort
+    return ":set grepprg?\n    grepprg=".&grepprg."\n:pwd\n    ".getcwd()."\n\n:".s:open_cmd()." | silent ".s:grep_cmd()."! "
+endfunction
+
 function! findInDirHelper#DisplayHelpAndSearch() abort
     if(exists("g:vscode"))
         call VSCodeNotify("workbench.action.findInFiles")
     else
-        let l:helptext = ":set grepprg?\n    grepprg=".&grepprg."\n:pwd\n    ".getcwd()."\n\n"
         call inputsave()
-        let searchstring = input(l:helptext . ":copen | silent grep! ")
+        let searchstring = input(s:help_text())
         call inputrestore()
         if(len(searchstring) > 0)
-            exec "copen"
-            exec "silent grep! " . searchstring
+            exec "silent ".s:grep_cmd()."! " . searchstring
+            exec "".s:open_cmd().""
         endif
     endif
 endfunction
@@ -32,11 +43,10 @@ function! findInDirHelper#FindSelectedTextInDir() abort
         let a_save = @a
         silent! normal! "ay
         let searchstring = @a
-        let l:helptext = ":set grepprg?\n    grepprg=".&grepprg."\n:pwd\n    ".getcwd()."\n\n:copen | silent grep! " . searchstring
         redraw!
-        echo "Executing:\n\n" . l:helptext
-        exec "copen"
-        exec "silent grep! " . searchstring
+        echo "Executing:\n\n" . s:help_text() . searchstring
+        exec "silent ".s:grep_cmd()."! " . searchstring
+        exec "".s:open_cmd().""
       finally
         let @a = a_save
       endtry
