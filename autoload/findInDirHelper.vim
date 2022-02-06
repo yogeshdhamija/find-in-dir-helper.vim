@@ -42,11 +42,15 @@ function! findInDirHelper#FindSelectedTextInDir() abort
       try
         let a_save = @a
         silent! normal! "ay
-        let searchstring = @a
+        let initialSearchString = @a
         redraw!
-        echo "Executing:\n\n" . s:help_text() . searchstring
-        exec "silent ".s:grep_cmd()."! " . searchstring
-        exec "".s:open_cmd().""
+        call inputsave()
+        let searchstring = input(s:help_text(), initialSearchString)
+        call inputrestore()
+        if(len(searchstring) > 0)
+            exec "silent ".s:grep_cmd()."! " . searchstring
+            exec "".s:open_cmd().""
+        endif
       finally
         let @a = a_save
       endtry
