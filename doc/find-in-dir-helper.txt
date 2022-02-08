@@ -4,8 +4,7 @@ Author: Yogesh Dhamija <github.com/yogeshdhamija/find-in-dir-helper.vim>
 
 `find-in-dir-helper.vim` lets you find text in a directory more easily.
 
-                                            *\f*
-This is default mapping provided by `find-in-dir-helper.vim` (see: |find-in-dir-helper.txt|).
+`\f` is default mapping provided by `find-in-dir-helper.vim`.
 It's triggered in `normal` and `visual` modes.
 If this is remapped in your vim configuration, that will take precedence. You 
 can then remap |<Plug>FindSelectedTextInDir| and |<Plug>FindInDirHelper| per
@@ -15,7 +14,7 @@ your preference to take advantage of this plugin.
 Can be triggered in normal mode to find text within a directory.
 Simply trigger, type your search, and press enter.
 
-The default mapping is |\f|, but can be changed through (for example):
+The default mapping is `\f`, but can be changed through (for example):
 >
     nmap F <Plug>FindInDirHelper
 <
@@ -26,7 +25,7 @@ The exact underlying commands being used will be displayed.
 Can be triggered in visual mode to find the selected text within a directory.
 Simply trigger and press enter.
 
-The default mapping is |\f|, but can be changed through (for example):
+The default mapping is `\f`, but can be changed through (for example):
 >
     xmap F <Plug>FindSelectedTextInDir
 <
