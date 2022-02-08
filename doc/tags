@@ -1,0 +1,3 @@
+\f	find-in-dir-helper.txt	/*\f*
+<Plug>FindInDirHelper	find-in-dir-helper.txt	/*<Plug>FindInDirHelper*
+<Plug>FindSelectedTextInDir	find-in-dir-helper.txt	/*<Plug>FindSelectedTextInDir*
