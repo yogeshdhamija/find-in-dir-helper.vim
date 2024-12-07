@@ -20,7 +20,7 @@ endfunction
 
 function! findInDirHelper#DisplayHelpAndSearch() abort
     if(exists("g:vscode"))
-        call VSCodeNotify("workbench.action.findInFiles")
+        call v:lua.require("vscode").call("workbench.action.findInFiles")
     else
         call inputsave()
         let searchstring = input(s:help_text())
@@ -37,7 +37,7 @@ function! findInDirHelper#FindSelectedTextInDir() abort
     if(exists("g:vscode"))
         let startPos = getpos("v")
         let endPos = getpos(".")
-        call VSCodeNotifyRangePos("workbench.action.findInFiles", startPos[1], endPos[1], startPos[2], endPos[2]+1, 1)
+        call v:lua.require("vscode").call("workbench.action.findInFiles")
     else
       try
         let a_save = @a
